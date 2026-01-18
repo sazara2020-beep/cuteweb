@@ -1,0 +1,50 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Hour Cozy Desk</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui">Click the notebook to write</div>
+
+    <!-- Notebook Interface -->
+    <div id="notebook-overlay">
+        <div class="notebook-header">
+            <div>
+                <button class="nav-btn" onclick="showPage('todo')">To-Do List</button>
+                <button class="nav-btn" onclick="showPage('story')">Story</button>
+            </div>
+            <button class="nav-btn close-btn" onclick="closeNotebook()">Close</button>
+        </div>
+        
+        <div id="todo-page" class="page-content active">
+            <h2>Today's Tasks</h2>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="todo-input" placeholder="What needs doing?">
+                <button id="add-todo" onclick="addTodo()">Add</button>
+            </div>
+            <ul id="todo-list">
+                <li><span>Ride harleys in Hawaii</span> <span class="del-task" onclick="this.parentElement.remove()">✕</span></li>
+            </ul>
+        </div>
+
+        <div id="story-page" class="page-content">
+            <h2>Infinite Story</h2>
+            <textarea id="story-area" placeholder="Once upon a time...">The sun was setting over the Pacific, casting a long golden shadow across the desk. On the monitor, the familiar beat of my favorite track kept time with the waves outside...</textarea>
+        </div>
+    </div>
+
+    <!-- Hidden Canvas for Monitor Screen Texture -->
+    <canvas id="monitor-canvas" width="512" height="256" style="display:none;"></canvas>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Logic -->
+    <script src="script.js"></script>
+</body>
+</html>
